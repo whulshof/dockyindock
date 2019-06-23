@@ -31,9 +31,9 @@ else
         echo "$VD_USER group exists"
      else
 	 echo "$VD_USER group does not exist"
-      	sudo groupadd -g 1000 "$VD_USER"
+      	sudo groupadd -g 1001 "$VD_USER"
      fi
-     sudo useradd -u 1000 -g "$VD_USER" "$VD_USER"
+     sudo useradd -u 1001 -g "$VD_USER" "$VD_USER"
      sudo passwd -d "$VD_USER"
      sudo usermod -a -G docker "$VD_USER"
      echo "user $VD_USER added as member of group $VD_USER and docker"
