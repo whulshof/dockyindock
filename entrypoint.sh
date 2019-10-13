@@ -14,7 +14,7 @@ if [ "$(id -u)" -eq 0 ]; then
 	gpasswd -a ${USERNAME} docker
 	chown :docker /var/run/docker.sock
 	echo $@
-	exec su "$USERNAME" "$0" "$@"
+	exec su "$USERNAME"
 fi
 
 echo "This will be run from user $(id -u)"
