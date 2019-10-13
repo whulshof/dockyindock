@@ -7,15 +7,15 @@
 # 
 #
 #echo "$(id -u)"
-if [ "$(id -u)" -eq 0 ]; then
-	groupadd -g $USERID $USERNAME
-	groupadd -g $DOCKERID docker
-	useradd -u $USERID -g $USERID $USERNAME
-	gpasswd -a ${USERNAME} docker
-	chown :docker /var/run/docker.sock
-	echo $@
-	exec su "$USERNAME"
-fi
+#if [ "$(id -u)" -eq 0 ]; then
+#	groupadd -g $USERID $USERNAME
+#	groupadd -g $DOCKERID docker
+#	useradd -u $USERID -g $USERID $USERNAME
+#	gpasswd -a ${USERNAME} docker
+#	chown :docker /var/run/docker.sock
+#	echo $@
+#	exec su "$USERNAME"
+#fi
 
 echo "This will be run from user $(id -u)"
 exec /usr/local/bin/docky "$@"
